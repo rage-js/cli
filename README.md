@@ -1,2 +1,1 @@
-# cli
-CLI for managing RAGE related activities
+# @rage-js/cli
