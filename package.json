@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Maghish/RAGE.git"
+    "url": "git+https://github.com/rage-js/cli.git"
   },
   "keywords": [
     "rage-cli",
@@ -27,9 +27,9 @@
   "author": "Maghish",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Maghish/RAGE/issues"
+    "url": "https://github.com/rage-js/cli/issues"
   },
-  "homepage": "https://github.com/Maghish/RAGE/tree/main/CLI#readme",
+  "homepage": "https://github.com/rage-js/cli#readme",
   "dependencies": {
     "@inquirer/prompts": "^5.0.4",
     "chalk": "^4.0.0",
