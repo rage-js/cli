@@ -1,6 +1,6 @@
 {
   "name": "@rage-js/cli",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "RAGE cli helps you build nodejs applications with RAGE support primarly.",
   "main": "index.js",
   "devDependencies": {
@@ -12,8 +12,7 @@
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "ts-node src/index.ts",
-    "postinstall": "tsup src/index.ts --format esm --clean && npm link"
+    "dev": "ts-node src/index.ts"
   },
   "repository": {
     "type": "git",
