@@ -2,6 +2,8 @@
 
 This module provides a CLI for building javascript projects with primary RAGE support.
 
+_Read the full documentation about the CLI through this link: **https://github.com/rage-js/docs**_
+
 ## Installation
 
 ```bash
