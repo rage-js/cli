@@ -188,7 +188,7 @@ async function prompt() {
           var outDir = await input({
             message:
               "Enter the directory to store the local files (Hit enter to proceed with default option):",
-            default: ".",
+            default: path.join(dirPath, "/db"),
           });
 
           if (outDir && outDir !== "") {
