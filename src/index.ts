@@ -327,6 +327,9 @@ async function createPackageFile(
       keywords: [],
       author: "",
       license: "ISC",
+      dependencies: {
+        "@rage-js/core": "latest",
+      },
     };
 
     await fs.writeFile(filePath, JSON.stringify(fileContent, null, 2));
@@ -410,25 +413,39 @@ async function createMainFile(
     let fileContent = ``;
 
     if (moduleType === "commonjs") {
-      fileContent = `const { App } = require("@rage-js/core");
+      fileContent = `// Run "npm install" to install the dependencies.
 
-app = new App("./rage.config.json", true);
-app.setup();
-app.start();
+const { App } = require("@rage-js/core");
 
-process.on("SIGINT", () => {
-  app.stop();
+const app = new App("./rage.config.json", true);
+
+async function start() {
+  await app.setup();
+  await app.start();
+}
+
+start();
+
+process.on("SIGINT", async () => {
+  await app.stop();
   process.exit(0);
 })`;
     } else {
-      fileContent = `import { App } from "@rage-js/core";
+      fileContent = `// Run "npm install" to install the dependencies.
+
+import { App } from "@rage-js/core";
 
 app = new App("./rage.config.json", true);
-app.setup();
-app.start();
 
-process.on("SIGINT", () => {
-  app.stop();
+async function start() {
+  await app.setup();
+  await app.start();
+}
+
+start();
+
+process.on("SIGINT", async () => {
+  await app.stop();
   process.exit(0);
 })`;
     }
