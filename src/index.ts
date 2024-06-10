@@ -410,13 +410,27 @@ async function createMainFile(
     let fileContent = ``;
 
     if (moduleType === "commonjs") {
-      fileContent = `
-// This part is still on development 💢🤬
-`;
+      fileContent = `const { App } = require("@rage-js/core");
+
+app = new App("./rage.config.json", true);
+app.setup();
+app.start();
+
+process.on("SIGINT", () => {
+  app.stop();
+  process.exit(0);
+})`;
     } else {
-      fileContent = `
-// This part is still on development 💢🤬
-`;
+      fileContent = `import { App } from "@rage-js/core";
+
+app = new App("./rage.config.json", true);
+app.setup();
+app.start();
+
+process.on("SIGINT", () => {
+  app.stop();
+  process.exit(0);
+})`;
     }
 
     await fs.writeFile(filePath, fileContent);
