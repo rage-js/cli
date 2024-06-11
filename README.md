@@ -4,6 +4,11 @@ This module provides a CLI for building javascript projects with primary RAGE su
 
 _Read the full documentation about the CLI through this link: **https://github.com/rage-js/docs**_
 
+# Table of Contents
+
+- [Installation](#installation)
+- [How to use it?](#how-to-use-it)
+
 ## Installation
 
 ```bash

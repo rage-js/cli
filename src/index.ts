@@ -426,7 +426,7 @@ async function start() {
 
 start();
 
-process.on("SIGINT", async () => {
+process.on("exit" | "SIGINT" | "SIGTERM", async () => {
   await app.stop();
   process.exit(0);
 })`;
@@ -444,7 +444,7 @@ async function start() {
 
 start();
 
-process.on("SIGINT", async () => {
+process.on("exit" | "SIGINT" | "SIGTERM", async () => {
   await app.stop();
   process.exit(0);
 })`;
