@@ -1,5 +1,11 @@
 # @rage-js/cli
 
+## 1.2.6
+
+### Patch Changes
+
+- File content exit function fixed
+
 ## 1.2.5
 
 ### Patch Changes
