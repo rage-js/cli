@@ -1,5 +1,11 @@
 # @rage-js/cli
 
+## 1.2.7
+
+### Patch Changes
+
+- Added new logo and shown it on README
+
 ## 1.2.6
 
 ### Patch Changes
