@@ -1,4 +1,9 @@
-# @rage-js/cli
+<div align='center'>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./img_for_docs/RAGE-cli.png">
+    <img src="./img_for_docs/RAGE-cli-dark.png" alt="RAGE">
+  </picture>
+</div>
 
 This module provides a CLI for building javascript projects with primary RAGE support.
 
