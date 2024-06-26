@@ -22,9 +22,9 @@ import path from "path";
 
 /**
  * Function that asks the user different set of questions and returns the given answers
- * @returns
+ * @returns {promptFunctionReturnValues}
  */
-async function prompt() {
+async function prompt(): Promise<promptFunctionReturnValues> {
   try {
     // Initialize with default values
     var returnValues: promptFunctionReturnValues = {
@@ -244,9 +244,9 @@ async function prompt() {
 /**
  * Sleep function which will make the process wait for few seconds
  * @param ms {number}
- * @returns
+ * @returns {Promise<any>}
  */
-async function sleep(ms: number) {
+async function sleep(ms: number): Promise<any> {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
@@ -257,7 +257,9 @@ async function sleep(ms: number) {
  * @param {promptFunctionReturnValues["dirPath"]} dirPath
  * @returns {Promise<string>}
  */
-async function checkDir(dirPath: promptFunctionReturnValues["dirPath"]) {
+async function checkDir(
+  dirPath: promptFunctionReturnValues["dirPath"]
+): Promise<string> {
   try {
     console.log("\n");
     // Start the loading spinner
@@ -303,6 +305,11 @@ async function checkDir(dirPath: promptFunctionReturnValues["dirPath"]) {
 
 /**
  * Function which creates a pre-made package.json file inside the given dirPath
+ * @param {string} fullPath
+ * @param {promptFunctionReturnValues["moduleType"]} moduleType
+ * @param {promptFunctionReturnValues["projectName"]} projectName
+ * @param {promptFunctionReturnValues["mainFile"]} mainFile
+ * @returns
  */
 async function createPackageFile(
   fullPath: string,
@@ -353,6 +360,7 @@ async function createPackageFile(
  * Function which creates a rage.config.json file inside the given dirPath
  * @param {string} fullPath
  * @param {promptFunctionReturnValues} configSettings
+ * @returns
  */
 async function createConfigFile(
   fullPath: string,
@@ -399,6 +407,7 @@ async function createConfigFile(
  * @param {string} fullPath
  * @param {string} mainFile
  * @param {promptFunctionReturnValues["moduleType"]} moduleType
+ * @returns
  */
 async function createMainFile(
   fullPath: string,
