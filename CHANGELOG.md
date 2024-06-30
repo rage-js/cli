@@ -1,5 +1,12 @@
 # @rage-js/cli
 
+## 1.2.8
+
+### Patch Changes
+
+- - Feature: Added `@rage-js/cli` package to `package.json`'s dependencies created by the CLI.
+  - Comment: Added a comment on line `425` to explain the reason for importing file contents for the main files statically instead of dynamic.
+
 ## 1.2.7
 
 ### Patch Changes

@@ -336,6 +336,7 @@ async function createPackageFile(
       license: "ISC",
       dependencies: {
         "@rage-js/core": "latest",
+        "@rage-js/cli": "latest",
       },
     };
 
@@ -420,6 +421,8 @@ async function createMainFile(
 
     const filePath = path.join(fullPath, mainFile);
     let fileContent = ``;
+
+    //! Couldn't find a solution to get file content dynamically, hence the following approach is done statically
 
     if (moduleType === "commonjs") {
       fileContent = `// Run "npm install" to install the dependencies.
