@@ -1,5 +1,13 @@
 # @rage-js/cli
 
+## 1.2.9
+
+### Patch Changes
+
+- - Bug fix: Replace `@rage-js/cli` package with `@rage-js/tools` on the `package.json` file content when creating one using the CLI.
+  - Bug fix: Add `const` to `app` on the ESM version of the main file content.
+  - Bug fix: Removed `"exit" || "SIGTERM" || "SIGINT"` conditional exit signals because of it causing an error when integrating RAGE with `express`.
+
 ## 1.2.8
 
 ### Patch Changes
