@@ -336,7 +336,7 @@ async function createPackageFile(
       license: "ISC",
       dependencies: {
         "@rage-js/core": "latest",
-        "@rage-js/cli": "latest",
+        "@rage-js/tools": "latest",
       },
     };
 
@@ -438,7 +438,7 @@ async function start() {
 
 start();
 
-process.on("exit" || "SIGINT" || "SIGTERM", async () => {
+process.on("SIGINT", async () => {
   await app.stop();
   process.exit(0);
 })`;
@@ -447,7 +447,7 @@ process.on("exit" || "SIGINT" || "SIGTERM", async () => {
 
 import { App } from "@rage-js/core";
 
-app = new App("./rage.config.json", true);
+const app = new App("./rage.config.json", true);
 
 async function start() {
   await app.setup();
@@ -456,7 +456,7 @@ async function start() {
 
 start();
 
-process.on("exit" || "SIGINT" || "SIGTERM", async () => {
+process.on("SIGINT", async () => {
   await app.stop();
   process.exit(0);
 })`;
