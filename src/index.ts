@@ -12,6 +12,7 @@ interface promptFunctionReturnValues {
   mongodbDatabasedbs?: string[];
   mongodbDatabaseExcludeCollections?: string[];
   outDir: string;
+  loopStartDelay: number;
 }
 
 import chalk from "chalk";
@@ -36,6 +37,7 @@ async function prompt(): Promise<promptFunctionReturnValues> {
       interval: 600000,
       databaseType: "MongoDB",
       outDir: ".",
+      loopStartDelay: 10000,
     };
 
     // File setup related questions
@@ -182,6 +184,23 @@ async function prompt(): Promise<promptFunctionReturnValues> {
 
             returnValues.mongodbDatabaseExcludeCollections =
               mongodbDatabaseExcludeCollections;
+          }
+
+          var loopStartDelay: string | number = await input({
+            message:
+              "Enter the estimate of delay you want to set before starting the loop. (Slower internet speed means higher delay would be recommended) (Enter in milliseconds) (Hit enter to proceed with default option):",
+            default: "5000",
+          });
+
+          loopStartDelay = Number(loopStartDelay);
+
+          if (loopStartDelay < 5000) {
+            console.log(
+              chalk.red(
+                "\nWe highly recommend the delay should be at least more than 5000 milliseconds!"
+              )
+            );
+            process.exit(1);
           }
 
           var outDir = await input({
@@ -385,6 +404,7 @@ async function createConfigFile(
         dbs: configSettings.mongodbDatabasedbs,
         excludeCollections: configSettings.mongodbDatabaseExcludeCollections,
       },
+      loopStartDelay: configSettings.loopStartDelay,
       outDir: configSettings.outDir,
     };
 
