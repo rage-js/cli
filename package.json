@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@changesets/cli": "^2.27.5",
-    "@types/node": "^20.13.0",
+    "@types/node": "^20.14.14",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5"
