@@ -88,17 +88,16 @@ async function prompt(): Promise<promptFunctionReturnValues> {
                   "Visit this URL for docs: https://github.com/Maghish/RAGE?tab=readme-ov-file#push-after-interval-%EF%B8%8F",
               },
               {
-                name: "Push On Update",
-                value: "POU",
-                description:
-                  "Visit this URL for docs: https://github.com/Maghish/RAGE?tab=readme-ov-file#push-on-update-%EF%B8%8F",
-                disabled: "(Not supported yet)",
-              },
-              {
                 name: "No Interval",
                 value: "NI",
                 description:
                   "Visit this URL for docs: https://github.com/Maghish/RAGE?tab=readme-ov-file#no-interval-%EF%B8%8F",
+              },
+              {
+                name: "Push On Update",
+                value: "POU",
+                description:
+                  "Visit this URL for docs: https://github.com/Maghish/RAGE?tab=readme-ov-file#push-on-update-%EF%B8%8F",
                 disabled: "(Not supported yet)",
               },
             ],
@@ -371,12 +370,15 @@ async function createConfigFile(
     const spinner = createSpinner("Creating rage.config.json...").start();
     await sleep(7000);
 
+    var methodSpecificSettings: { [key: string]: any } = {};
+    if (configSettings.method === "PAI") {
+      methodSpecificSettings["interval"] = configSettings.interval;
+    }
+
     const filePath = path.join(fullPath, "rage.config.json");
     const fileContent = {
       method: configSettings.method,
-      methodSpecificSettings: {
-        interval: configSettings.interval,
-      },
+      methodSpecificSettings: methodSpecificSettings,
       databaseType: configSettings.databaseType,
       databaseSpecificSettings: {
         secretKey: configSettings.databaseSecret,
