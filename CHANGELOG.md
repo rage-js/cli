@@ -1,5 +1,12 @@
 # @rage-js/cli
 
+## 1.3.0
+
+### Minor Changes
+
+- 79ae796: - Feature: No Interval method is now available to select.
+  - Feature: `loopStartDelay` attribute is now prompted with `5000` milliseconds default value.
+
 ## 1.2.9
 
 ### Patch Changes
