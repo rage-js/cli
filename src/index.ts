@@ -286,8 +286,7 @@ async function checkDir(
 
     // Get full path
     const currentPath = process.cwd();
-    const fullPath =
-      dirPath === "." ? currentPath : path.join(currentPath, dirPath);
+    const fullPath = dirPath === "." ? currentPath : dirPath; // path.join(currentPath, dirPath);
 
     try {
       // Find the full path
