@@ -1,5 +1,13 @@
 # @rage-js/cli
 
+## 1.3.1
+
+### Patch Changes
+
+- 324e67d: ## Bug Fix:
+
+  - Removed `process.cwd()` from `cli` module, as per [Issue #44](https://github.com/rage-js/core/issues/44) on `core` package repository.
+
 ## 1.3.0
 
 ### Minor Changes
